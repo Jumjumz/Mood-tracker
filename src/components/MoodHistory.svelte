@@ -7,35 +7,17 @@
 {#if $moodEntries.length === 0}
   <p>No mood entries yet.</p>
 {:else}
-  <ul>
+  <ul class=" list-none p-0">
     {#each $moodEntries as entry (entry._id)}
-      <li>
+      <li class=" border-2 p-4 mb-4">
         <span>{entry.mood}</span>
         <span>{new Date(entry.timestamp).toLocaleString()}</span>
         <p>{entry.note}</p>
-        <button on:click={() => deleteMoodEntry(entry._id)}>Delete</button>
+        <button
+          class="bg-[#ff4136] text-white border-0 cursor-pointer p-2 rounded-md"
+          on:click={() => deleteMoodEntry(entry._id)}>Delete</button
+        >
       </li>
     {/each}
   </ul>
 {/if}
-
-<style>
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  button {
-    background-color: #ff4136;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-  }
-</style>
