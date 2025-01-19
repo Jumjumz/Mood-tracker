@@ -7,26 +7,13 @@
 </script>
 
 <Router {url}>
-  <nav>
+  <nav class=" flex justify-around p-4 bg-[#f0f0f0]">
     <Link to="/">Add Mood</Link>
     <Link to="/history">Mood History</Link>
   </nav>
 
-  <main>
+  <main class=" p-4">
     <Route path="/" component={MoodEntry} />
     <Route path="/history" component={MoodHistory} />
   </main>
 </Router>
-
-<style>
-  nav {
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    background-color: #f0f0f0;
-  }
-
-  main {
-    padding: 1rem;
-  }
-</style>
