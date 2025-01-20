@@ -20,6 +20,7 @@
 <div class=" flex justify-around mb-4">
   {#each moods as mood}
     <button
+      class=" h-24 w-24 text-2xl"
       class:selected={selectedMood === mood}
       on:click={() => (selectedMood = mood)}
     >
@@ -35,7 +36,9 @@
 ></textarea>
 
 <button
-  class=" text-md cursor-pointer w-full h-10 bg-blue-300"
+  class={!selectedMood
+    ? "text-md w-full h-10 bg-gray-400 rounded-md"
+    : " text-md cursor-pointer w-full h-10 bg-blue-300 rounded-md"}
   on:click={handleSubmit}
   disabled={!selectedMood}>Save Mood</button
 >
